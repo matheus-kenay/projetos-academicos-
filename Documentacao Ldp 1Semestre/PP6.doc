@@ -1,0 +1,154 @@
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: Ctrl<d>, duplica linha. Ctrl<y>, apaga linha. Ctrl</>, comenta linha.
+
+- Problema:
+
+- Implemente um programa com a função (def) e a função principal (main):
+
+  A função (def) positivo_nulo_negativo que recebe um número qualquer real
+(um parâmetro) e não retorna nada.
+Ela mostra uma das mensagens:
+“Valor positivo.”, se o número recebido for positivo;
+“Valor nulo.”, se o número recebido for nulo e
+“Valor negativo.”, se o número recebido for negativo.
+  O programa (função main) lê o número, chama a função positivo_nulo_negativo
+passando o valor lido (argumento).
+- Testes:
+Teste 1: Entrada  7               Saída: "Valor positivo."
+Teste 2: Entrada  0               Saída: "Valor nulo."
+Teste 3: Entrada -7               Saída: "Valor negativo."      """
+def positivo_nulo_negativo (number): # Função testa um valor
+    if number < 0:
+        print("Valor negativo.")
+    elif number == 0:
+        print("Valor nulo.")
+    else:
+        print("Valor positivo.")
+# Início da função main.
+if __name__ == '__main__':                  # Atalho:  main + <tab>
+    valor_digitado = float(input("Digite um número: "))
+    positivo_nulo_negativo(valor_digitado)  # Chama a função
+
+
+
+
+
+
+
+
+''' --- ALTERAÇÕES:
+a. Chame a função mais uma vez, peça para o usuário digitar mais um valor
+b. Refaça o exercício sem usar a variável valor_retorno, na função main.
+
+    --- DICAS:
+   valor2 = float(input("Digite outro número: "))  # No final do main   # a.
+   positivo_nulo_negativo (valor2)
+
+   positivo_nulo_negativo(float(input("Digite um número: ")))           # b.
+'''
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: Ctrl<d>, duplica linha. Ctrl<y>, apaga linha. Ctrl</>, comenta linha.
+
+- Problema:
+
+    Implemente um programa com a função (def) e a função principal (main):
+
+    A função (def) recebe dois números inteiros como parâmetros, compara
+os valores e retornar o maior valor. Se os números forem iguais, a função
+retorna qualquer um deles.
+    A função principal (main) lê dois números digitados pelo usuário,
+chama a função passando os dois argumentos (os números lidos) e
+mostra o valor retornado pela função, ou seja, o maior número.
+- Obs.: não use a função nativa (pronta) da linguagem, a função max.
+Teste 1: Entrada: 2 e 3         Saída: Maior valor: 3
+Teste 2: Entrada: 4 e 3         Saída: Maior valor: 4
+Teste 3: Entrada: 5 e 5         Saída: Maior valor: 5   """
+
+# A função recebe dois parâmetros (dois valores) e retorna o maior
+def maximo_dois(num1, num2):    # Assinatura da função
+    if num1 > num2:             # Se num1 for maior que num2
+        maior = num1
+    else:
+        maior = num2
+    return maior                # Retorna o maior valor
+
+# O if abaixo indica o início da execução do programa principal (main)
+if __name__ == '__main__':      # Atalho: main + <tab>
+    numero1 = int(input("Primeiro número: ")) # Lê dois números do usuário
+    numero2 = int(input("Segundo número: "))
+    vl_retorno = maximo_dois(numero1, numero2) # Chama a função
+    # A variável vl_retorno recebe o valor retornado pela função
+    print("\nMaior valor:", vl_retorno)
+
+''' --- ALTERAÇÕES:
+a. Refaça a função maximo de dois sem a variável maior.
+b. Refaça a função main (principal) sem usar a variável vl_retorno. 
+c. Acrescente a função mínimo de dois. Ela recebe 2 valores e retorna o menor valor
+d. No main, chame a função minimo passando os dois valores
+
+   --- DICAS:
+def maximo_dois(num1, num2):                                        # a.
+    if num1 > num2:             # Se num1 for maior que num2
+        return num1
+    else:
+        return num2
+    # vl_retorno = maximo_dois(numero1, numero2)                    # b.
+    # A variável vl_retorno recebe o valor retornado pela função
+    print("\nMaior valor:", maximo_dois(numero1, numero2))
+def minimo(num1, num2):                                             # c.
+    if num1 < num2:         # Se num1 for menor que num2
+        menor = num1
+    else:
+        menor = num2
+    return menor            # Retorna
+
+'''
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: Ctrl<d>, duplica linha. Ctrl<y>, apaga linha. Ctrl</>, comenta linha.
+
+- Problema:
+
+- Implemente um programa com a função (def) e a função principal (main):
+
+- A função (def) recebe dois parâmetros (dois valores) inteiros que corresponde
+  ao horário no formato (hora e minuto), faz o cálculo e retorna um valor
+  inteiro que corresponde ao horário convertido em minutos.
+
+- A função principal (main) lê o horário (as horas e os minutos) digitado pelo
+  usuário, chama a função converte em minutos passando os dois argumentos
+  (horas e minutos) e com o valor retornado pela função, mostra uma mensagem
+  apropriada, ou seja, o horário convertido em minutos.
+
+         - Entrada:                 - Saída:
+Teste 1: horas: 1, minutos: 30      Horário convertido em minutos: 90
+Teste 2: horas: 2, minutos: 10      Horário convertido em minutos: 130      """
+
+def converte_em_minuto(horas, minutos): # Assinatura da função
+    vl_minutos = horas * 60 + minutos   # Converte tudo em minutos
+    return vl_minutos                   # Retorna o valor calculado
+
+# O if abaixo indica o início da execução do programa principal (main)
+if __name__ == '__main__':              # Atalho: main + <tab>
+    h = int(input("Horas: "))           # Lê os dados de entrada
+    m = int(input("Minutos: "))
+    retorno = converte_em_minuto(h, m)     # Chama a função
+    print("\nHorário convertido em minutos:", retorno)  # Tela de saída
+
+''' --- ALTERAÇÕES:
+a. No final do programa principal (main), mostre também na tela de saída 
+   o valor da hora e do minuto lidos.
+b. No final do main, chame a função converte_em_minuto mais uma vez.
+
+    --- DICAS: 
+    print("Horas:", h)                                       # Solução 1 # a.
+    print("Minutos:", m)
+    print(h, "horas e", m, "minutos =", retorno, "minutos.") # Solução 2
+    print(f"{h} horas e {m} minutos = {retorno} minutos.")   # Solução 3
+    print("{} horas e {} minutos = {} minutos." .format(h, m, retorno)) # Solução 4
+    ...                                 # No final do main               # b.
+    h = int(input("Horas: "))           # Lê os dados de entrada    
+    m = int(input("Minutos: "))
+    retorno = converte_em_minuto(h, m)  
+    print(f"{h} horas e {m} minutos = {retorno} minutos.")
+
+'''

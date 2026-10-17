@@ -1,0 +1,180 @@
+# - Sintaxe:
+# from nome_arquivo_sem_extensao import NomeClasse1, NomeClasse2, NomeClasse3
+from conta_aula53 import PessoaFisica, PessoaJuridica
+if __name__ == '__main__':                  # main + <tab> (tecla de atalho)
+    pf1 = PessoaFisica('Ana', 3000.0, 'f')  # Três argumentos           # 8
+    pf2 = PessoaFisica('Ailton', 7000.0)    # Dois argumentos
+    pf3 = PessoaFisica('Kelly')             # Um argumento
+
+    print('\n- Pessoa Física 1:\nNome:', pf1.get_nome()) # Método na superclasse
+    print("Saldo:", pf1.get_saldo())        # Método da superclasse     # 9
+    print("Gênero:", pf1.get_genero())      # Método da subclasse
+    print('\n- Pessoa Física 2:\nNome:', pf2.get_nome()) # Método na superclasse
+    pf2.set_nome("Paulo")                                               # 10
+    print('Nome alterado:', pf2.get_nome()) # Método na superclasse
+
+    pj1 = PessoaJuridica('Café ABC', 15000.0, 'MEI')   # Três argumentos
+    pj2 = PessoaJuridica('Padaria', 35000.0)           # Dois argumentos
+    pj3 = PessoaJuridica('Loja')                       # Um argumento
+    print('\n- Pessoa Jurídica 1:\nNome:', pj1.get_nome()) # Método da superclasse
+    print("Saldo:", pj1.get_saldo())                   # Método da superclasse
+    print("Modalidade:", pj1.get_modalidade())         # Método da subclasse
+
+    print("\n- Pessoa Física 1:\nSaldo antes:", pf1.get_saldo())
+    pf1.deposito(111)                                    # Depósito
+    print("Saldo depois:", pf1.get_saldo())              # Verifica alteração
+    pj1.deposito(222)
+    print("- Pessoa Jurídica 1:\nSaldo antes:", pj1.get_saldo())
+    print("\n- Pessoa Física 1:\nSaldo antes:", pf1.get_saldo())
+    pf1.retirada(100)                                   # Retirada sem RN
+    print("Saldo depois retirada, pf1:", pf1.get_saldo()) # Verifica alteração
+    pj1.retirada(210)
+    print("Saldo depois retirada pj1:", pj1.get_saldo()) # Verifica alteração
+    print("\n- Pessoa Física 1:\nSaldo antes:", pf1.get_saldo())
+    pf1.retirada_rn(100)                                    # Retirada com RN
+    print("Saldo depois da retirada pf1:", pf1.get_saldo()) # Verifica alteração
+    pj1.retirada_rn(210)
+    print("- Pessoa Jurídica 1:\nSaldo:", pj1.get_saldo()) # Verifica alteração
+    pj1.retirada_rn(20000.0)                               # Retirada, msg erro
+    print('Saldo: ', pj1.get_saldo())                      # Verifica alteração
+    """            Comentários de várias linhas - Prof. Barbosa
+Atalhos: Ctrl<d>, duplica linha. Ctrl<y>, apaga linha. Ctrl</>, comenta linha.
+
+- Problema:
+- Com base nos conceitos de Programação Orientada a Objetos (POO) e
+inheritance (herança), implemente a entidade (classe) conta-corrente:
+- Com as especificidades:
+conta-corrente pessoa física
+conta-corrente pessoa jurídica
+
+- Algumas características (atributos) de uma conta-corrente:
+nome, valor do saldo, gênero e modalidade de PJ.
+
+- Levante as características (atributos) comuns de uma conta-corrente:
+nome
+valor do saldo
+
+- Levante as características (atributos) específicas de cada conta-corrente:
+ContaCorrentePessoaFisica: gênero
+ContaCorrentePessoaJuridica: modalidade de PJ
+
+- Trabalhe com dois arquivos.py:
+Um arquivo.py com as classes, os construtores e os métodos (defs) e
+um segundo arquivo.py com o main e a execução da classe.
+
+- Implemente:
+1- Implemente a superclasse Conta.
+2- Crie o método construtor (__init__) com os atributos comuns nome e saldo.
+   E pelo menos um valor default (padrão). O método recebe os parâmetros que
+   serão armazenados nos atributos da classe: self.nome e self.saldo.
+3- Crie os métodos (defs) gets dos atributos para consultar os dados.
+   def get_atributo1(self):             # Sintaxe do método get (consulta)
+       return self.atributo1
+4- Crie os métodos (defs) sets dos atributos para alterar os dados.
+   def set_atributo1(self, novo_valor): # sintaxe do método set (altera)
+       self.atributo1 = novo_valor
+5- Crie a subclasse conta pessoa física, que herda da superclasse Conta. E o
+   construtor com os dois atributos comuns e o atributo específico gênero.
+   Use pelo menos um atributo com valor default (padrão).
+class NomeSubClasse(NomeSuperClasse):
+    def __init__ (self, parametro1, parametro2, parametro3=''): # Construtor
+        super().__init__(parametro1, parametro2)
+        self.atributo3 = parametro3                # Atributos de instância
+6- Crie os métodos (defs) gets dos atributos para consultar, evite código repetido.
+7- Crie os métodos (defs) sets dos atributos para alterar, evite código repetido.
+
+8- No main, crie (instancie) dois objetos da subclasse com três e dois argumentos
+- Obs.: implemente o main num segundo arquivo.py, separado das classes
+# Sintaxe:
+from nome_outro_arquivo_sem_extensao import NomeClasse
+if __name__ == '__main__':               # main <tab> (tecla de atalho)
+   objeto1 = NomeClasse(arg1, arg2, arg3) # Instancia objeto com 3 argumentos
+   objeto2 = NomeClasse(arg1, arg2)       # Instancia objeto com 2 argumentos
+   objeto3 = NomeClasse(arg1)             # Instancia objeto com 1 argumento
+9- No main, use (teste) os métodos gets para consultar os objetos criados
+   print("Mensagem:", objeto1.get_atributo1()) # nome_objeto.nome_metodo()
+10- No main, use (teste) os métodos sets para os alterar os objetos criados
+   objeto1.set_atributo1(envia o novo valor)   # nome_objeto.nome_metodo(novo_valor)
+   print("Mensagem:", objeto1.get_atributo1()) # verifica se alterou na memória
+
+11- Crie a subclasse conta pessoa jurídica, que herda da superclasse Conta. E o
+   construtor com os dois atributos comuns e o atributo específico modalidade.
+   Use pelo menos um atributo com valor default (padrão).
+12- Crie os métodos gets dos atributos para consultar, evite código repetido.
+13- Crie os métodos sets dos atributos para alterar, evite código repetido.
+
+14- No main, crie (instancie) dois objetos da subclasse com 3 e 2 argumentos
+15- No main, use (teste) os métodos gets para consultar os objetos criados
+16- No main, use (teste) os métodos sets para os alterar os objetos criados
+
+17- Crie o método funcional deposito, ele recebe o valor do depósito e atualiza
+    o saldo e não retorna nada. Vamos implementar em qual classe? Teste
+18- Faça uma validação no método deposito. Msg. de erro, se valor negativo. Teste
+19- Crie o método retirada, ele recebe o valor da retirada e atualiza o saldo, teste
+20- Refaça o método retirada usando RNs (Regras de Negócio) bancárias. Teste
+"""
+
+# O nome de classe começa com letra maiúscula e as outras letras minúsculas.
+# class Conta(object): # Três formas equivalentes de criar classe
+# class Conta():
+class Conta:                       # Superclasse (classe mãe) # 1
+    def __init__(self, nome, saldo=0.0): # Construtor com valor default (padrão) # 2
+        self.nome = nome           # Atributos de instância
+        self.saldo = saldo
+    def get_nome(self):            # Consulta               # 3
+        return self.nome
+    def get_saldo(self):
+        return self.saldo
+    def set_nome(self, novo_nome): # Altera                 # 4
+        self.nome = novo_nome
+    # Obs.: não implemente o método set_saldo, RN (Regra de Negócio) dos bancos
+
+    # def deposito(self, valor):   # Método funcional sem crítica   # 17
+    #     self.saldo = self.saldo + valor # self.saldo += valor
+    def deposito(self, valor): # Método funcional com crítica   # 18
+        if valor > 0:
+            self.saldo = self.saldo + valor # self.saldo += valor
+        else:
+            print("Erro: valor negativo.")
+    def retirada(self, valor):          # Sem RN (Regra de Negócio)   # 19
+        self.saldo = self.saldo - valor # self.saldo -= valor
+    def retirada_rn(self, valor):       # RN obrigatória (natural dos bancos) # 20
+        if valor > self.saldo:
+            print('Saldo insuficiente.')
+        else:
+            self.saldo = self.saldo - valor # self.saldo -= valor
+
+
+# O nome de classe começa com letra maiúscula e as outras letras minúsculas.
+# class NomeSubclasse(NomeSuperclasse): # Sintaxe de  herança
+class PessoaFisica(Conta): # Subclasse PessoaFisica herda da superclasse Conta # 5
+    def __init__(self, nome, saldo=0.0, genero=''): # Valores default (padrão)
+        super().__init__(nome, saldo)   # Chama o construtor da superclasse
+        self.genero = genero
+    def get_genero(self):               # Consulta                  # 6
+        return self.genero
+    def set_genero(self, novo_genero):  # Altera                    # 7
+        self.genero = novo_genero
+
+
+""" - As principais modalidades de PJ:
+1 - MEI (Microempreendedor Individual)
+2 - ME – Microempresa
+3 - EPP (Empresa de Pequeno Porte)
+4 - EI (Empresário Individual) 
+5 - EIRELI (Empresa Individual de Responsabilidade Limitada)
+6 - Sociedade Limitada – LTDA
+7 - Sociedade Anônima (SA)                                  """
+# O nome de classe começa com letra maiúscula e as outras letras minúsculas.
+# class NomeSubclasse(NomeSuperclasse): # Sintaxe de herança
+class PessoaJuridica(Conta): # Subclasse PessoaJuridica herda da superclasse # 11
+    def __init__(self, nome, saldo=0.0, modalidade=''): # Default (padrão)
+        super().__init__(nome, saldo) # Chama o construtor da superclasse
+        self.modalidade = modalidade
+    def get_modalidade(self):                  # Consulta
+        return self.modalidade
+    def set_modalidade(self, nova_modalidade): # Altera
+        self.modalidade = nova_modalidade
+
+
+

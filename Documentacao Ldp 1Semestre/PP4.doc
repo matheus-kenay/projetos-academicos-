@@ -1,0 +1,65 @@
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: ctrl<d>, duplica linha. ctrl<y>, apaga linha. ctrl</>, comenta linha.
+
+- Problema:
+
+- Implemente o programa que calcula a média aritmética de uma turma com
+cinquenta alunos. Onde cada aluno realizou uma avaliação. O usuário vai
+digitar a nota dos alunos. Resolva com a estrutura de repetição for.
+
+- Obs.: facilite os testes no desenvolvimento, troque o valor cinquenta por cinco.
+
+  Esse problema já foi resolvido com a estrutura de repetição while, agora,
+refaça-o com a estrutura de repetição for.
+
+- Passos para resolver o problema (algoritmo):
+inicia as variáveis         # Antes do for, na coluna 1
+for variavel in range(v_inicial, v_final, v_passo): # Controla quantas repetições
+    le nota                 # Indentação obrigatória
+    contador
+    somador
+calcula média               # Depois do for, na coluna 1
+mostra média
+
+- Fórmula de média aritmética:      media = ____soma____           (numerador)
+				                             quantidade            (denominador)
+
+Teste 1:    Entrada: nota: 2, 4, 6, 8, 10      Saída: Média da turma = 6
+Teste 2:    Entrada: nota: 3, 4, 6, 8, 10      Saída: Média da turma = 6.2
+"""
+
+ct = 0                      # Inicia o contador
+soma = 0                    # Inicia o somador
+# soma = ct = 0             # Inicia as duas variáveis com zero na mesma linha
+for numero in range(1, 5+1, 1): # for numero in range(1, 6): # Controla repetições
+    nota = float(input("Nota do aluno: ")) # Indentação obrigatória
+    ct = ct + 1             # ct += 1 (contador)
+    soma = soma + nota      # soma += nota (somador ou acumulador)
+    # Fim da estrutura de repetição for
+media = soma / ct           # Na coluna 1, depois do for, calcula a media
+print("\nMédia da turma =", media)
+''' --- ALTERAÇÕES:
+a. A quantidade de alunos aprovados com nota maior ou igual a cinco. 
+b. A quantidade de alunos reprovados com nota menor que cinco. 
+c. A maior nota da turma.
+d. E a menor nota da turma.
+
+    --- DICAS:
+ct_aprovado = 0                         # Antes do for              # a.
+ct_reprovado = 0
+    if nota >= 5:                       # Dentro do for
+        ct_aprovado = ct_aprovado + 1
+    else:                                                           # b.
+        ct_reprovado = ct_reprovado + 1      
+print("Qtd. aprovados:", ct_aprovado)   # Depois do for
+print("Qtd. reprovados:", ct_reprovado)
+menor = 999                                                         # c.
+maior = -999
+    if nota < menor:
+        menor = nota
+    if nota > maior:                                                # d.
+        maior = nota
+print("Maior nota: ", maior)
+print("Menor nota: ", menor)
+
+'''

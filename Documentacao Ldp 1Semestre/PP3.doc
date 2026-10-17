@@ -1,0 +1,88 @@
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: ctrl<d>, duplica linha. ctrl<y>, apaga linha. ctrl</>, comenta linha.
+
+- Problema:
+- Construa um programa que calcule a média aritmética dos números pares.
+O usuário vai digitar os valores de entrada que pode ser um número qualquer
+par ou ímpar. A condição de saída (flag) será o número 0 (zero).
+
+- Analise o problema e verifique quais dados de entrada o usuário precisa digitar.
+
+- Passos para resolver o problema (algoritmo):
+variável ct                 # Valor inicial das variáveis
+variável soma
+estrutura de repetição:     # Início da repetição
+    lê número
+    testa condição saída:
+    se número é par:
+        contador
+        somador             # Fim da repetição
+calcula média               # Os comandos voltam para coluna 1
+tela de saída
+
+- Obs.: um número é par se ele for divisível por dois, ou seja,
+  se dividir o número por dois e o resto for igual a zero.
+
+- Dica: use o operador módulo (resto da divisão de inteiros)
+  Exemplos: 8 % 2 (resto = 0)       7 % 2 (resto = 1)
+
+- Fórmula de média aritmética:      media = ____soma____
+				                             quantidade
+
+Teste 1: Entrada: valor: 1, 2 e 0           Saída: Média 2
+Teste 2: Entrada: valor: 1, 2, 3, 4 e 0     Saída: Média 3
+Teste 3: Entrada: valor: 1, 2, 2, 4 e 0     Saída: Media 2.6666666666666665
+"""
+
+ct = 0                  # Contador, conta os números pares
+soma = 0                # Somador, soma os números pares
+# ct = soma = 0         # Inicializa todas as variáveis numa linha
+print('Digite zero [0] para sair')
+while True:             # while valor != 0:
+    valor = int(input("Número inteiro: "))  # Recebe um número inteiro
+    if valor == 0:      # valor igual (==) a 0 é a condição de saída
+        break           # O break força a saída da estrutura de repetição
+    resto = valor % 2   # O operador % pega o resto da divisão
+    if resto == 0:      # Se o resto for zero o valor é par
+        soma = soma + valor     # soma += valor # Somador ou acumulador
+        ct = ct + 1             # ct += 1       # Contador
+    # Fim da estrutura de repetição "while"
+media = soma / ct               # Os comandos voltam para coluna 1
+print("\nA média de todos os pares é:", media) # Mostra o resultado
+
+''' --- ALTERAÇÕES:
+a. Mostre a quantidade de números pares.
+b. Mostre a quantidade de números digitados.
+c. Mostre a média com quatro casas decimais.
+d. Como resolver o teste 4, corrija esta mensagem de erro do Python.
+   ZeroDivisionError: division by zero 
+   Teste 4: valor: 1, 3 e 0        Saída: Não foi digitado número par.
+
+    --- DICAS:
+print(f'Quantidade de números pares: {ct}')                         # a.
+ct_geral = 0                                  # Antes do while      # b.
+    ct_geral = ct_geral + 1  # ct_geral += 1  # Dentro do while
+print(f'Quantidade de números: {ct_geral}')   # Depois do while
+print(f"Média dos pares: {media:.4f}")        # f-string            # c. 
+print("Média dos pares: {:.4f}" .format(media) ) 
+print("Média dos pares: %.4f" %(media) )             
+
+    ...                                                             # d.
+    # Fim da estrutura de repetição "while"                     
+if ct > 0:                      # Verifica o teste 4:
+    media = soma / ct           # Calcula a média
+    print("A média de todos os pares é:", media) 
+else:
+    print('Não foi digitado número par.')
+---
+
+- Operadores aritméticos:
+    +       →       soma
+    –       →       subtração
+    *       →       multiplicação
+    /       →       divisão
+    //      →       divisão de inteiros (quociente da divisão de inteiros)
+    %       →       módulo (resto da divisão de inteiros)
+    **      →       potenciação
+
+'''

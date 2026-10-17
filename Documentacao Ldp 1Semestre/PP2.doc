@@ -1,0 +1,44 @@
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: ctrl<d>, duplica linha. ctrl<y>, apaga linha. ctrl</>, comenta linha.
+
+- Problema:
+- Elabore o programa que faça a conversão de graus Fahrenheit (ºF) para
+graus Celsius (ºC).
+
+- Fórmula: celsius = ___5___x___(fahrenheit___-___32)___    (numerador)
+                        9                                   (denominador)
+
+Analise o problema e verifique quais dados de entrada o usuário precisa digitar
+
+- Passos para resolver o problema (algoritmo):
+Entrada de dados (leia)
+Processamento (calcule)
+Saída de dados (escreva)
+
+Teste 1: Entrada: Fahrenheit: 32       Saída: Celsius: 0.0
+Teste 2: Entrada: Fahrenheit: 55       Saída: Celsius: 12.77777777777779
+Teste 3: Entrada: Fahrenheit: 61       Saída: Celsius: 16.11111111111111
+Teste 4: Entrada: fahrenheit: 70       Saída: Celsius: 21.111111    """
+# Recebe a temperatura em Fahrenheit
+fahrenheit = float(input("Digite a temperatura em ºF: "))
+# Efetua o cálculo
+celsius = 5 * (fahrenheit - 32) / 9   # Solução 1 (parênteses obrigatórios)
+# celsius = 5 / 9 * (fahrenheit - 32) # Solução 2 (parênteses obrigatórios)
+print("\nGraus em Celsius convertido:", celsius)  # Mostra o resultado
+''' --- ALTERAÇÕES:
+a. Mostre o valor celsius com três casas decimais.
+b. Altere o layout da mensagem de saída:
+Valor em Fahrenheit: x.xx  (Mostra com duas casas decimais).
+Valor em Celsius: x.xxxx   (Mostra com quatro casas decimais).
+    --- DICAS:
+print(f"Graus em Celsius convertido: {celsius:.3f} °C")                 # a.
+#      Obs.: o valor 3 é a quantidade de casas decimais.
+print("Graus correspondente em Celsius: {:.3f} °C" .format (celsius))  
+
+print(f"Valor em Fahrenheit: {farenheit:.2f}")                          # b.
+print(f"Valor em Celsius: {celsius:.4f}")
+print ("Valor em Fahrenheit: {:.2f}" .format(fahrenheit)) # Solução 2               
+print ("Valor em Celsius: {:.4f}" .format(celsius))
+
+
+'''

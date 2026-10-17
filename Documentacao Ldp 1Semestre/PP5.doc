@@ -1,0 +1,175 @@
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: Ctrl<d>, duplica linha. Ctrl<y>, apaga linha. Ctrl</>, comenta linha.
+
+- Problema:
+
+- Implemente um programa com a função def e a função principal (main):
+
+1. A função (def) recebe os dois parâmetros (dois valores), calcula a soma
+dos dois valores e retorna o resultado do cálculo para o main.
+
+2. A função principal (main) lê os dois valores inteiros digitados pelo usuário,
+chama a função passando os dois argumentos (dois valores lidos) e depois mostra
+o valor retornado pela função, ou seja, o resultado obtido.
+
+Teste: Entrada: 2 e 3                   Saída: Soma = 5         """
+
+# O def define a função que recebe os dois parâmetros (dois valores) v1 e v2.
+def soma(v1, v2):       # Assinatura da função
+    v_soma = v1 + v2    # A variável v_soma recebe o resultado do cálculo
+    return v_soma       # Retorna o valor calculado
+    # Fim da funçao
+
+# A função (def) só será executada quando for chamada na função main.
+# O if abaixo indica o início da execução do programa principal (main)
+if __name__ == '__main__':                  # main + <tab> (atalho)
+    valor1 = int(input('Primeiro valor: ')) # Indentação obrigatória.
+    valor2 = int(input('Segundo valor: '))
+    v_retorno = soma(valor1, valor2) # Chama a função
+    # A variável v_retorno recebe o valor retornado pela função (def)
+    print("\nSoma = ", v_retorno)           # Tela de saída
+
+''' --- ALTERAÇÕES:
+a. Altere a função principal (main), refaça sem usar a variável v_retorno
+   Dica: a chamada da função pode ser colocado dentro do print
+b. Altere a função (def), refaça a função sem usar a variável v_soma.
+   Dica: na função, o cálculo pode ser feito dentro do return
+c. No final do main, chame a função (def) mais uma vez, 
+   passe os valores reais (2.1, 3.5). 
+
+    --- DICAS:
+    print("\nSoma = ", soma(valor1, valor2))  # Tela de saída       # a.
+def soma(v1, v2):                                                   # b.
+    # v_soma = v1 + v2
+    # return v_soma
+    return v1 + v2
+    v_retorno = soma(2.1, 3.3)  # No final do main                  # c.
+    print ("Soma = ", v_retorno)
+
+'''
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: Ctrl<d>, duplica linha. Ctrl<y>, apaga linha. Ctrl</>, comenta linha.
+
+- Problema:
+
+- Implemente um programa com duas funções defs e a função principal (main):
+
+1- A função (def) "soma" recebe dois parâmetros (valores) inteiros, realiza
+   a soma deles e retorna o resultado do cálculo.
+
+2- A função (def) "subtrai" recebe dois parâmetros (valores) inteiros, realiza
+   a subtração deles e retorna o resultado do cálculo.
+
+3- O programa (função main) lê dois valores inteiros digitados pelo
+   usuário, chama a função soma passando os dois valores lidos e
+   depois chama a função subtrai passando os dois valores lidos.
+   A função main recebe o valor retornado pelas funções soma e subtrai
+   e gera a tela de saída com essas informações.
+
+Teste 1: Entrada: 3 e 2         Saída: Soma = 5 e Subtração = 1
+Teste 2: Entrada: 2 e 6         Saída: Soma = 8 e Subtração = -4    """
+
+def soma(a, b):       # Recebe dois parâmetros (valores)
+    somar = a + b     # Com a variável local somar
+    return somar      # Retorna o resultado do cálculo para o main
+
+def subtrai(a, b):    # Recebe dois parâmetros (valores)
+    subtrair = a - b
+    return subtrair
+
+# O if abaixo indica o início da execução do programa principal (main)
+if __name__ == '__main__':             # Atalho: main <tab>
+    num1 = int(input("Primeiro valor inteiro: ")) # Lê os valores
+    num2 = int(input("Segundo valor inteiro: "))
+    retorno_soma = soma(num1, num2)     # Chama def com variável
+    # A variável retorno_soma recebe o valor retornado pela função
+    print("\nSoma =", retorno_soma)
+    retorno_subtrai = subtrai(num1, num2) # Chama def com variável
+    print("Subtração =", retorno_subtrai)
+""" --- ALTERAÇÕES:
+a. Refaça a funçao soma sem usar a variável dentro da funçao (variável somar)
+b. Refaça o program principal (main) sem usar a variável retorno_subtrai.
+   Dica: o retorno da função pode ser colocado dentro do print
+    --- Dicas:
+def soma(a, b):                                             # a.
+    return a + b                                   
+if __name__ == '__main__':                                  # b.
+    ...
+    # retorno_subtrai = subtrai(num1, num2)  
+    # print("Subtração =", retorno_subtrai)  
+    print("Subtração =", subtrai(num1, num2))           
+
+"""
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: Ctrl<d>, duplica linha. Ctrl<y>, apaga linha. Ctrl</>, comenta linha.
+
+- Problema:
+
+- Implemente um programa com as funções defs e a função principal (main):
+
+1. A função (def) "soma" recebe dois valores inteiros, realiza a soma e retorna
+   o resultado do cálculo.
+
+2. A função (def) "subtrai" recebe dois valores inteiros, realiza a subtração e
+   retorna o resultado do cálculo.
+
+3. O programa (função main) lê dois valores inteiros digitados pelos
+   usuários e o usuário escolhe apenas uma operação (somar ou subtrair).
+   A opção desejada será lida no programa principal (main) que
+chama uma das funções passando os dois valores lidos como argumentos.
+  A função main recebe o valor retornado pela função soma ou subtrai
+e gera a tela de saída com essa informação. Use variável local.
+
+Teste 1: valor 1: 13, valor 2: 14, opção: 1		Saída: Soma = 27
+Teste 2: valor 1: 13, valor 2: 14, opção: 2 	Saída: Subtração = -1 """
+
+def soma(x, y):  # A função recebe 2 parâmetros (valores) e retorna a soma
+    return x + y
+
+def subtrai(x, y):  # Recebe 2 parâmetros (valores) e retorna a subtração
+    calculo = x - y
+    return calculo
+
+# O if abaixo indica o início da execução do programa principal (main)
+if __name__ == '__main__':               # Atalho: main + <tab>
+    v1 = int(input("Primeiro valor: "))  # Início da função main.
+    v2 = int(input("Segundo valor: "))
+    opcao = int(input("\n[1] Somar\n[2] Subtrair\nOpção: "))
+    if opcao == 1:              # Se digitou 1, chama a função soma,
+        print('\nSoma =', soma(v1, v2))
+    else:                       # senão, chama a função subtrai
+        print('\nSubtração =', subtrai(v1, v2))
+
+''' --- ALTERAÇÕES:
+a. Mostre também uma mensagem de opção inválida.
+   Teste 3: valores v1 = 13, v2 = 14 e opção = 3. Saída: Opção inválida
+b. Refaça, use a tecla "+" e "-" no lugar de 1 e 2 na mensagem de leitura:
+c. Use a função 'soma' para somar 4 valores e mostre o resultado.
+   Não altere (não mexa) a função soma.   
+
+    --- DICAS:
+    . . .                                                           # a.
+    if opcao == 1:            
+        print('Soma =', soma(v1, v2))
+    elif opcao == 2:      
+        print('Subtração =', subtrai(v1, v2))
+    else:
+        print('Opção inválida')             
+
+    opcao = str(input("[+] Somar\n[-] Subtrair\nOpção: "))          # b.
+    if opcao == '+':   
+        print('Soma= ', soma(v1, v2))
+    elif opcao == '-':      
+        print('Subtração= ', subtrai(v1, v2))
+    else:
+        print('Opção inválida')      
+
+    . . .                           # No final do main              # c.
+    v3 = int(input("Terceiro valor:")           # v3 = 3
+    v4 = int(input("Quarto valor:")             # v4 = 5
+    s1 = soma(v1, v2)                           # Com variáveis
+    s2 = soma(v3, v4)
+    total = s1 + s2           
+    print("Soma 4 valores:', total) 
+
+'''

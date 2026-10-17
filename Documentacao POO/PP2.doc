@@ -1,0 +1,197 @@
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: ctrl<d>, duplica linha. Ctrl<y>, apaga linha. Ctrl</>, comenta linha.
+
+- Problema:
+
+- Com base nos conceitos de Programação Orientada a Objetos (POO),
+implemente a entidade produto com estas características (atributos):
+
+nome do produto,
+valor de compra,
+valor de venda,
+quantidade em estoque, e
+quantidade mínima (quando a empresa precisa realizar uma nova compra do produto)
+
+- Implemente:
+
+1- Crie um arquivo .py com a classe Produto
+2- Crie o método construtor (__init__), ele recebe os parâmetros que serão
+   armazenados nos atributos da classe:
+nome produto, valor compra, valor venda, quantidade em estoque e quantidade mínima
+class NomeClasse:
+    def __init__ (self, parametro1, parametro2, ...): # Sintaxe do construtor
+        self.atributo1 = parametro1                    # Atributos da classe
+        self.atributo2 = parametro2
+        ...
+3- Crie os métodos (defs) gets dos atributos nome do produto e preço de venda.
+   def get_atributo1(self):             # Sintaxe do método get (consulta)
+       return self.atributo1
+4- Crie os métodos sets (defs) dos atributos nome do produto e preço de venda.
+   def set_atributo1(self, novo_valor): # sintaxe do método set (altera)
+       self.atributo1 = novo_valor
+
+from nome_arquivo_com_classe_sem_extensão import NomeClasse
+5- No função main, crie (instancie) dois objetos da classe e passe os argumentos
+if __name__ == '__main__':                 # main <tab> (tecla de atalho)
+    objeto1 = NomeClasse(arg1, arg2, ...)  # Cria (instancia) o objeto da classe
+6- No método main, mostre os objetos criados, teste (rode) a classe
+   print("Objeto criado:", objeto1)        # Teste
+7- No main, use (teste) os métodos gets para consultar os objetos criados
+   print("Mensagem:", objeto1.get_atributo1())
+8- No main, use (teste) os métodos sets para os alterar os objetos criados
+   objeto1.set_atributo1(envia o novo valor).
+   print("Valor alterado:", objeto1.get_atributo1()) # Verifica se alterou na memória
+
+9- No main, peça para o usuário digitar o novo valor do preço de venda e
+    chame o método set preco de venda. Teste
+
+10- Crie o método (def) funcional mostra dados. Ele não recebe nada, mostra todos
+    os atributos da classe dentro do método e não retorna nada. Teste.
+11- Crie o método (def) funcional calcula lucro. Ele não recebe nada, calcula
+    o lucro e retorna o valor do lucro do produto. Teste
+
+12- Faça uma crítica no método set preço de venda para evitar dados
+    inconsistentes, por exemplo, preço de venda com valor negativo. Teste
+13- Teste (use) o novo método set preço de venda com valor válido e
+     depois com valor inválido.
+
+14- Crie o método (def) funcional atualiza estoque. Ele recebe a quantidade vendida
+    do produto pela empresa e atualiza o estoque. Ele não retorna nada, teste
+15- No main, peça para o usuário digitar a quantidade vendida e chame o método
+    atualiza estoque. Teste
+
+16- Método funcional (def) repor_produto. Ele recebe a quantidade adquirida de produtos
+    pela empresa e atualiza o estoque, teste
+
+"""
+
+
+""" Nome de classe: primeira letra de cada palavra com letra maiúscula
+O nome de classe começa com letra maiúscula e as outras letras minúsculas.
+class Produto(object):
+class Produto():        # Três formas equivalentes de criar a classe.     """
+class Produto:
+    # Construtor
+    def __init__(self, nome, vlr_compra, vlr_venda, qtd_estoque, qtd_minima):
+        self.nome = nome                            # Atributos de instância
+        self.vlr_compra = vlr_compra
+        self.vlr_venda = vlr_venda
+        self.qtd_estoque = qtd_estoque
+        self.qtd_minima = qtd_minima
+
+    def get_nome(self):         # Método get (consulta, retorna o valor)
+        return self.nome
+    def get_vlr_venda(self):    # def get_nome_atributo(self):
+        return self.vlr_venda
+    def get_vlr_compra(self):
+        return self.vlr_compra
+    def get_qtd_estoque(self):
+        return self.qtd_estoque
+    def get_qtd_minima(self):
+        return self.qtd_minima
+
+    def set_nome(self, novo_nome):        # Método set (altera o valor)
+        self.nome = novo_nome
+    # def set_vlr_venda(self, novo_valor):  # Sem crítica
+    #     self.vlr_venda = novo_valor
+
+    def set_vlr_venda(self, novo_valor):  # Com crítica (filtro)    # 12
+        if novo_valor >= 0:
+            self.vlr_venda = novo_valor
+        else:
+            print("Erro: não pode ser valor negativo")
+
+    def set_vlr_compra(self, novo_valor): # def set_nome_atributo(self, novo_valor):
+        self.vlr_compra = novo_valor
+    def set_qtd_estoque(self, novo_vlr):
+        self.qtd_estoque = novo_vlr
+    def set_qtd_minima(self, novo_vlr):
+        self.qtd_minima = novo_vlr
+
+    def mostra_dados(self):               # Método funcional        # 10.
+        print("Nome:", self.nome)
+        print("Preço de compra:", self.vlr_compra)
+        print("Preço de venda:", self.vlr_venda)
+        print("Quantidade de estoque:", self.qtd_estoque)
+        print("Quantidade de minima:", self.qtd_minima)
+
+    def calcula_lucro(self):              # Método funcional
+        vlr_lucro = self.vlr_venda - self.vlr_compra
+        return vlr_lucro
+
+    def atualiza_estoque(self, qtd_vendida): # Método funcional
+        self.qtd_estoque = self.qtd_estoque - qtd_vendida
+        # self.qtd_estoque -= qtd_vendida
+
+    def repor_estoque(self, qtd_comprada):   # Método funcional
+         self.qtd_estoque = self.qtd_estoque + qtd_comprada
+        # self.qtd_estoque += qtd_comprada
+
+# Sintaxe:
+# from nome_arquivo_sem_extensao import NomeClasse
+from produto_enunciado_aula21 import Produto
+if __name__ == '__main__':                  # Atalho: main <tab>
+    prod_1 = Produto("Arroz", 29.00, 37.50, 67, 20) # Chama __init__
+    print("Objeto criado:", prod_1)         # Mostra endereço hexadecimal
+    # print anterior: Objeto criado: <__main__.Produto object at 0x000001A1E15B1B80>
+    prod_2 = Produto("Farinha", 9.00, 11.50, 87, 25) # Chama __init__
+    print("Objeto criado:", prod_2)         # Mostra endereço hexadecimal
+    # print anterior: Objeto criado: <__main__.Produto object at 0x000001A1E15B1C43>
+
+    print("-------------------------------------")
+    print('Produto 1:\nNome:', prod_1.get_nome())  # nome_objeto.nome_metodo()
+    print('Valor de compra:', prod_1.get_vlr_compra())
+    print('Valor de venda:', prod_1.get_vlr_venda())
+    print('Qtd. estoque:', prod_1.get_qtd_estoque())
+
+    print("-------------------------------------")
+    print('Produto 2:\nNome:', prod_2.get_nome())  # nome_objeto.nome_metodo()
+    print('Valor de compra:', prod_2.get_vlr_compra())
+    print('Valor de venda:', prod_2.get_vlr_venda())
+    print('Qtd. estoque:', prod_2.get_qtd_estoque())
+    print("-------------------------------------")
+
+    prod_1.set_vlr_venda(39.00)                       # 8. Altera
+    print("Valor alterado:", prod_1.get_vlr_venda())
+    prod_1.set_qtd_estoque(70)              # Argumento correto, int
+    print('Qtd. estoque alterado:', prod_1.get_qtd_estoque())  # Confirma
+
+    novo_valor = float(input("Novo valor venda: "))   # 9. Altera valor com input
+    prod_1.set_vlr_venda(novo_valor)
+    print("Valor alterado:", prod_1.get_vlr_venda())
+    print('Qtd. mínima:', prod_1.get_qtd_minima())
+    qtd = int(input("Quantidade minima: "))
+    prod_1.set_qtd_minima(qtd)          # Ex.: nome_objeto.nome_metodo(valor)
+    print('Qtd. minima alterada:', prod_1.get_qtd_minima())  # Confirma
+    prod_1.set_qtd_minima(23)           # Ex.: nome_objeto.nome_metodo(valor)
+    print('Qtd. minima alterada:', prod_1.get_qtd_minima())  # Confirma
+    prod_1.set_nome('Novo arroz')           # Argumento correto
+    print('Nome alterado:', prod_1.get_nome())       # Teste
+    print("-------------------------------------")
+    prod_1.mostra_dados()
+    print("-------------------------------------")
+    prod_2.mostra_dados()
+    print("-------------------------------------")
+    print("Lucro, produto 1:", prod_1.calcula_lucro())
+    print("Lucro, produto 2:", prod_2.calcula_lucro())
+
+    prod_1.set_vlr_venda(22.00)            # Argumento válido
+    print('Valor de compra alterado:', prod_1.get_vlr_venda())  # Teste
+    prod_1.set_vlr_venda(-11.00)           # Argumento inválido
+
+    prod_1.set_vlr_compra(22.00)            # Argumento válido
+    print('Valor de compra alterado:', prod_1.get_vlr_compra())  # Teste
+    prod_1.set_vlr_compra(-11.00)           # Argumento inválido
+    print('Valor de compra:', prod_1.get_vlr_compra())  # Teste
+    prod_1.set_vlr_compra(22.00)            # Argumento correto
+    print(f'Valor de compra: {prod_1.get_vlr_compra()}')  # Teste
+
+    prod_1.atualiza_estoque(3)      # O argumento é a quantidade vendida.
+    print('Qtd. estoque:', prod_1.get_qtd_estoque())
+
+    qtd_vendida = int(input("Quantidade vendida: "))
+    prod_1.atualiza_estoque(qtd_vendida) # O argumento é a quantidade vendida.
+    print('Qtd. estoque:', prod_1.get_qtd_estoque())
+
+    prod_1.repor_estoque(11)      # O argumento é a quantidade comprada.
+    print('Qtd. estoque:', prod_1.get_qtd_estoque())

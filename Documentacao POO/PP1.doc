@@ -1,0 +1,125 @@
+"""            Comentários de várias linhas - Prof. Barbosa
+Atalhos: ctrl<d>, duplica linha. Ctrl<y>, apaga linha. Ctrl</>, comenta linha.
+
+- Problema:
+- Com base nos conceitos de Programação Orientada a Objetos (POO),
+implemente a entidade veículo com estas características (atributos):
+    modelo do veículo,
+    ano e
+    valor.
+
+- Implemente:
+1- Crie um programa .py e a classe Veiculo
+2- Crie o método construtor (__init__), ele recebe os parâmetros que serão
+   armazenados nos atributos da classe: modelo, ano e valor
+class NomeClasse:                                   # Sintaxe
+    def __init__ (self, parametro1, parametro2, parametro3): # Construtor
+        self.atributo1 = parametro1                 # Atributos da classe
+        self.atributo2 = parametro2
+        self.atributo3 = parametro3
+3- Crie os métodos (defs) gets dos atributos para consultar os dados.
+   def get_atributo1(self):     # Sintaxe do método get (consulta)
+       return self.atributo1
+4- No método main, crie (instancie) dois objetos da classe e passe os argumentos
+if __name__ == '__main__':                 # main <tab> (use a tecla de atalho)
+    objeto1 = NomeClasse(arg1, arg2, arg3) # Cria (instancia) um objeto da classe
+5- No método main, mostre os objetos criados, teste (rode) a classe
+   print("Endereço hexadecimal do objeto 1:", objeto1) # Sintaxe
+6- No main, use (teste) os métodos gets para consultar os objetos criados
+   print("Mensagem:", objeto1.get_atributo1()) # Sintaxe
+7- Crie os métodos (defs) sets dos atributos para alterar os dados.
+   def set_atributo1(self, novo_valor): # Sintaxe do método set (altera)
+       self.atributo1 = novo_valor
+8- No main, use (teste) os métodos sets para os alterar os objetos criados
+   objeto1.set_atributo1("Envia o novo valor") # Sintaxe
+   print("Mensagem:", objeto1.get_atributo1()) # verifica se alterou na memória
+9- No main, peça para o usuário digitar o novo valor do veículo e chame
+   o método set valor. Teste
+10- Crie o método (def) aumenta valor. Ele recebe o valor do aumento do
+   veículo em reais que será somado ao atributo valor do carro e atualiza
+   o valor do carro na memória. Ele não retorna nada. Teste
+11a- No main, chame o método aumento valor, passe o valor do aumento do veículo.
+11b- No main, peça para o usuário digitar o valor do aumento do veículo e
+    chame o método aumento valor. Teste
+12- Crie o método (def) mostra dados. Ele não recebe nada, mostra todos os
+   atributos da classe dentro do método e não retorna nada. Teste
+"""
+
+
+""" Nome de classe: primeira letra de cada palavra com letra maiúscula
+O nome de classe começa com letra maiúscula e as outras letras minúsculas.
+class Veiculo(object):
+class Veiculo():        # Três formas equivalentes de criar a classe.     """
+class Veiculo:
+    def __init__(self, modelo, ano, valor): # Construtor
+        self.modelo = modelo                # Atributos de classe
+        self.ano = ano
+        self.valor = valor
+
+    def get_modelo(self):                   # Método get (consulta)
+        return self.modelo
+    def get_ano(self):
+        return self.ano
+    def get_valor(self):
+        return self.valor
+
+    def set_modelo(self, novo_modelo):      # Método set (altera)
+        self.modelo = novo_modelo
+    def set_ano(self, novo_ano):
+        self.ano = novo_ano
+    def set_valor(self, novo_valor):       # Sem crítica
+        self.valor = novo_valor
+
+    def aumenta_valor(self, valor_aumento): # Recebe valor do aumento em reais
+        self.valor = self.valor + valor_aumento # self.valor += valor_aumento
+
+    def mostra_dados(self):                 # Solução 1, com atributos
+        print('Modelo:', self.modelo)
+        print('Ano:', self.ano)
+        print('Valor:', self.valor)
+
+    def mostra_dados2(self):                # Solução 2, com métodos
+        print('Modelo:', self.get_modelo())
+        print('Ano:', self.get_ano())
+        print('Valor:', self.get_valor())
+
+
+if __name__ == '__main__':                 # Use o atalho: main <tab>
+    carro1 = Veiculo('HB', 2025, 90000.00) # chama método __init__
+    print("Endereço hexadecimal objeto 1:", carro1) # Teste
+    # Endereço hexadecimal objeto1: <veiculo.Veiculo object at 0x000001F6B9565670>
+    carro2 = Veiculo('Corolla', 2024, 190000.00)    # Chama método __init__
+    print("Endereço hexadecimal objeto 2:", carro2) # Teste
+    # Endereço hexadecimal objeto2: <veiculo.Veiculo object at 0x000001F6B95656A0>
+
+    print("\n- Dados do carro 1:\nModelo:", carro1.get_modelo()) # Consulta
+    print("Ano:", carro1.get_ano())
+    print(f"Valor: R$ {carro1.get_valor():.2f}")    # Duas casas decimais
+
+    print("\n- Dados do carro 2:\nModelo:", carro2.get_modelo())  # Direto no print
+    print("Ano:", carro2.get_ano())
+    print(f"Valor: R$ {carro2.get_valor():.2f}")    # Duas casas decimais
+    retorno = carro1.get_modelo()           # Usa variável
+    print("\nModelo:", retorno)
+
+    carro1.set_modelo('HB20')    # Altera (substitui) o valor do objeto
+    print("\nModelo atualizado:", carro1.get_modelo())  # Confirma a alteração
+    carro2.set_valor(210000.00)  # Altera (substitui) o valor do objeto
+    print("\nValor atualizado:", carro2.get_valor())    # Confirma a alteração
+
+    novo_valor = float(input("Novo valor veículo: ")) # Valor digitado usuário
+    carro1.set_valor(novo_valor)  # Altera (substitui) o valor do objeto
+    print("Valor atualizado:", carro1.get_valor())    # Confirma a alteração
+
+    carro1.aumenta_valor(999.00)    # Passa o argumento
+    print("Valor atualizado:", carro1.get_valor())   # Confirma a alteração
+
+    vl_aumento = float(input("Valor do aumento veículo: ")) # Valor digitado
+    carro2.aumenta_valor(vl_aumento)         # Usuário digitou no input
+    print("Valor atualizado com input:", carro2.get_valor()) # Confirma alteração
+
+    carro1.mostra_dados()
+    carro2.mostra_dados()
+
+    carro1.mostra_dados2()
+    carro2.mostra_dados2()
