@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
@@ -6,6 +6,7 @@
   <meta name="description" content="Portfólio acadêmico de Matheus Kenay, estudante de Engenharia de Software. Trabalhos de programação, documentação e versionamento.">
   <title>Portfólio Acadêmico | Matheus Kenay</title>
   <link rel="stylesheet" href="style.css">
+  <script src="theme.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -14,7 +15,12 @@
       <a href="#sobre">Sobre</a>
       <a href="#projetos">Disciplinas</a>
       <a href="#versionamento">Versionamento</a>
-      <a href="#tecnologias">Tecnologias</a>
+      <button class="theme-toggle" id="theme-toggle" type="button"
+              aria-label="Alternar tema claro e modo noturno"
+              aria-pressed="false" title="Alternar tema claro e modo noturno">
+        <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+        <span class="theme-toggle-label">Modo noturno</span>
+      </button>
     </nav>
   </header>
 
@@ -116,20 +122,6 @@
       </div>
     </section>
 
-    <section class="intro section" id="tecnologias">
-      <div class="section-kicker">04 / TECNOLOGIAS</div>
-      <div class="intro-grid">
-        <h2>Ferramentas<br><span>que apoiam meu aprendizado.</span></h2>
-        <div class="intro-body">
-          <p>Este portfolio registra a pratica de programacao, a organizacao de materiais academicos e o uso de controle de versao durante a graduacao.</p>
-          <div class="stat-row">
-            <div class="stat"><strong>Python</strong><span>Exercicios e logica de programacao</span></div>
-            <div class="stat"><strong>HTML/CSS</strong><span>Estrutura e visual do site</span></div>
-            <div class="stat"><strong>Git</strong><span>Historico e versionamento</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="closing">
       <p class="eyebrow">UM PASSO DE CADA VEZ</p>
       <h2>Aprender. Praticar. Melhorar.</h2>
@@ -141,4 +133,3 @@
   <footer class="site-footer"><a class="brand" href="#inicio"><span class="brand-mark">MK</span><span>Matheus Kenay</span></a><p>Portfólio acadêmico · Engenharia de Software</p><a href="#inicio">Voltar ao topo ↑</a></footer>
 </body>
 </html>
-
